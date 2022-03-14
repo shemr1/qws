@@ -1,20 +1,33 @@
 {
-  "name": "qws",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "12.1.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "eslint": "8.10.0",
-    "eslint-config-next": "12.1.0"
-  }
+	"name": "qws",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"@next-auth/mongodb-adapter": "^1.0.1",
+		"axios": "^0.26.1",
+		"bcryptjs": "^2.4.3",
+		"formik": "^2.2.9",
+		"mongodb": "^4.4.1",
+		"mongoose": "^6.2.5",
+		"next": "12.1.0",
+		"next-auth": "^4.2.1",
+		"nodemailer": "^6.7.2",
+		"react": "17.0.2",
+		"react-dom": "17.0.2",
+		"validator": "^13.7.0",
+		"yup": "^0.32.11"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.2",
+		"eslint": "8.10.0",
+		"eslint-config-next": "12.1.0",
+		"postcss": "^8.4.8",
+		"tailwindcss": "^3.0.23"
+	}
 }
