@@ -21,6 +21,12 @@ export default function Register() {
 		dob: "",
 		ip: "",
 	});
+	const [data, setData] = useState({
+		name: "",
+		email: "",
+		message:
+			"Welcome to Quality Medical Services. We are happy to have you on board and we will be there for you evvery step of the way",
+	});
 
 	const getData = async () => {
 		const res = await axios.get("https://geolocation-db.com/json/");
@@ -32,6 +38,23 @@ export default function Register() {
 		//passing getData method to the lifecycle method
 		getData();
 	}, []);
+
+	async function email() {
+		console.log("Sending");
+
+		try {
+			await fetch("/api/email", {
+				method: "POST",
+				headers: {
+					Accept: "application/json, text/plain, */*",
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
 
 	const register = async (form) => {
 		try {
@@ -66,6 +89,9 @@ export default function Register() {
 		console.log(form.dob);
 		if (form.password === form.confirmPassword) {
 			register(form);
+			data.email = form.email;
+			data.name = form.name;
+			email();
 		} else {
 			router.reload();
 		}

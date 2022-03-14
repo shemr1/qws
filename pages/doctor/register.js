@@ -18,6 +18,29 @@ export default function Register() {
 		confirmPassword: "",
 	});
 
+	const [data, setData] = useState({
+		name: "",
+		email: "",
+		message:
+			"Welcome to Quality Medical Services. We are happy to have you on board and we will be there for you evvery step of the way",
+	});
+	async function email() {
+		console.log("Sending");
+
+		try {
+			await fetch("/api/email", {
+				method: "POST",
+				headers: {
+					Accept: "application/json, text/plain, */*",
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
 	const register = async (form) => {
 		try {
 			await fetch("/api/doctors", {
@@ -49,6 +72,9 @@ export default function Register() {
 		console.log("submitting");
 		e.preventDefault();
 		register(form);
+		data.email = form.email;
+		data.name = form.name;
+		email();
 	};
 
 	return (

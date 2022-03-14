@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Patient from "../../models/patientModel";
-import connectDB from "../../lib/connectDB";
+import Patient from "../models/patientModel";
+import connectDB from "../lib/connectDB";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
@@ -177,9 +177,9 @@ const PatientInfo = ({ patient }) => {
 					</button>
 
 					<button
-						onClick={() => {
+						onClick={async () => {
+							await router.push("/");
 							signOut();
-							router.push("/");
 						}}
 						type="button"
 						className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-gray-600 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-800"

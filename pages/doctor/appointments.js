@@ -18,6 +18,29 @@ const DocAppointments = ({ pending, approved }) => {
 		status: "",
 	});
 
+	const [data, setData] = useState({
+		name: "",
+		email: "",
+		message: "",
+	});
+
+	async function email() {
+		console.log("Sending");
+
+		try {
+			await fetch("/api/email", {
+				method: "POST",
+				headers: {
+					Accept: "application/json, text/plain, */*",
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+		} catch (error) {
+			console.log(error.message);
+		}
+	}
+
 	const patch = async (body) => {
 		try {
 			await fetch("/api/appointments", {
@@ -28,6 +51,7 @@ const DocAppointments = ({ pending, approved }) => {
 				},
 				body: JSON.stringify(body),
 			});
+
 			router.reload();
 		} catch (error) {
 			console.log(error.message);
@@ -109,6 +133,11 @@ const DocAppointments = ({ pending, approved }) => {
 																(body.id = app._id);
 															body.status = "approved";
 															patch(body);
+															data.email = patient.email;
+															data.name = patient.name;
+															data.message =
+																"Your appointment request has been approved. Please review details";
+															email();
 														}}
 														type="button"
 														className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
@@ -122,6 +151,11 @@ const DocAppointments = ({ pending, approved }) => {
 																(body._id = app._id);
 															body.status = "declined";
 															patch(body);
+															data.email = patient.email;
+															data.name = patient.name;
+															data.message =
+																"Your appointment request has been declined. Please review details";
+															email();
 														}}
 														type="button"
 														className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"

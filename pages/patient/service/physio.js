@@ -58,10 +58,187 @@ const GS = () => {
 		form.email = session.data.user.email;
 
 		request(form);
+		data.email = session.data.user.email;
+		data.name = session.data.user.name;
+		email();
 	};
 
 	if (status === "loading") {
 		return <p>Loading...</p>;
+	}
+
+	if (status === "unauthenticated") {
+		return (
+			<div className="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
+				<div className="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
+					<img
+						className="w-full"
+						alt="img of a girl posing"
+						src="https://images.pexels.com/photos/5473184/pexels-photo-5473184.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+					/>
+					<img
+						className="mt-6 w-full"
+						alt="img of a girl posing"
+						src="https://images.pexels.com/photos/8312899/pexels-photo-8312899.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+					/>
+				</div>
+				<div className="md:hidden">
+					<img
+						className="w-full"
+						alt="img of a girl posing"
+						src="https://images.pexels.com/photos/5473184/pexels-photo-5473184.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+					/>
+					<div className="flex items-center justify-between mt-3 space-x-4 md:space-x-0">
+						<img
+							alt="img-tag-one"
+							className="md:w-48 md:h-48 w-full"
+							src="https://images.pexels.com/photos/8312899/pexels-photo-8312899.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+						/>
+					</div>
+				</div>
+				<div className="xl:w-2/5 md:w-1/2 lg:ml-8 md:ml-6 md:mt-0 mt-6">
+					<div className="border-b border-gray-200 pb-6">
+						<p className="text-sm leading-none text-gray-600">
+							Quality Medical Services Limited
+						</p>
+						<h1
+							className="
+							lg:text-2xl
+							text-xl
+							font-semibold
+							lg:leading-6
+							leading-7
+							text-gray-800
+							mt-2
+						"
+						>
+							Physiotherapy
+						</h1>
+					</div>
+
+					<div>
+						<p className="xl:pr-48 text-base lg:leading-tight leading-normal text-gray-600 mt-7">
+							It is a long established fact that a reader will be distracted by
+							thereadable content of a page when looking at its layout. The
+							point of usingLorem Ipsum is that it has a more-or-less normal
+							distribution of letters.
+						</p>
+						<p className="text-base leading-4 mt-7 text-gray-600">
+							Services included:
+						</p>
+						<p className="text-base leading-4 mt-4 text-gray-600">
+							Functional Rehab
+						</p>
+						<p className="text-base leading-4 mt-4 text-gray-600">
+							Massage Therapy
+						</p>
+						<p className="text-base leading-4 mt-4 text-gray-600">
+							Chiropractic
+						</p>
+						<p className="md:w-96 text-base leading-normal text-gray-600 mt-4">
+							Strength & Conditioning
+						</p>
+					</div>
+					<div>
+						<div className="border-t border-b py-4 mt-7 border-gray-200">
+							<div
+								onClick={() => setShow(!show)}
+								className="flex justify-between items-center cursor-pointer"
+							>
+								<p className="text-base leading-4 text-gray-800">
+									Appointment notice
+								</p>
+								<button
+									className="
+									cursor-pointer
+									focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400
+									rounded
+								"
+									aria-label="show or hide"
+								>
+									<svg
+										className={
+											"transform " + (show ? "rotate-180" : "rotate-0")
+										}
+										width="10"
+										height="6"
+										viewBox="0 0 10 6"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M9 1L5 5L1 1"
+											stroke="#4B5563"
+											strokeWidth="1.25"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										/>
+									</svg>
+								</button>
+							</div>
+							<div
+								className={
+									"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " +
+									(show ? "block" : "hidden")
+								}
+								id="sect"
+							>
+								The appointment request once requested will be either denied or
+								accepted by a medical practitioner once they deem it suitable
+								for their application.
+							</div>
+						</div>
+					</div>
+					<div>
+						<div className="border-b py-4 border-gray-200">
+							<div
+								onClick={() => setShow2(!show2)}
+								className="flex justify-between items-center cursor-pointer"
+							>
+								<p className="text-base leading-4 text-gray-800">Contact us</p>
+								<button
+									className="
+									cursor-pointer
+									focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-400
+									rounded
+								"
+									aria-label="show or hide"
+								>
+									<svg
+										className={
+											"transform " + (show2 ? "rotate-180" : "rotate-0")
+										}
+										width="10"
+										height="6"
+										viewBox="0 0 10 6"
+										fill="none"
+										xmlns="http://www.w3.org/2000/svg"
+									>
+										<path
+											d="M9 1L5 5L1 1"
+											stroke="#4B5563"
+											strokeWidth="1.25"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+										/>
+									</svg>
+								</button>
+							</div>
+							<div
+								className={
+									"pt-4 text-base leading-normal pr-12 mt-4 text-gray-600 " +
+									(show2 ? "block" : "hidden")
+								}
+								id="sect"
+							>
+								If you have any questions on how to return your item to us,
+								contact us. Note our business hours are 9 am to 7 pm.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		);
 	}
 
 	return (
