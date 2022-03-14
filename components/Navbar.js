@@ -21,7 +21,7 @@ const Navbar = () => {
 							</span>
 						</a>
 						<div className="flex md:order-2">
-							<Link href="/userPage">
+							<Link href="/doctor/userPageDoc">
 								<button
 									type="button"
 									className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -77,17 +77,18 @@ const Navbar = () => {
 									</Link>
 								</li>
 								<li>
-									<Link href="/doctors/patients">
+									<Link href="/doctor/patients">
 										<a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
 											Patients
 										</a>
 									</Link>
 								</li>
 								<li>
-									<Link href="/doctors/appointments"></Link>
-									<a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-										Appointments
-									</a>
+									<Link href="/doctor/appointments">
+										<a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+											Appointments
+										</a>
+									</Link>
 								</li>
 							</ul>
 						</div>
@@ -109,7 +110,7 @@ const Navbar = () => {
 							</span>
 						</a>
 						<div className="flex md:order-2">
-							<Link href="/userPage">
+							<Link href="/patient/userPage">
 								<button
 									type="button"
 									className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

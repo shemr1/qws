@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Patient from "../models/patientModel";
-import connectDB from "../lib/connectDB";
+import Patient from "../../models/patientModel";
+import connectDB from "../../lib/connectDB";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import { getSession, useSession } from "next-auth/react";
@@ -97,6 +97,10 @@ const PatientInfo = ({ patient }) => {
 		return <>loading</>;
 	}
 
+	if (session.data.role === "doctor") {
+		return <></>;
+	}
+
 	return (
 		<>
 			<div className="container font-mono space-y-4 justify-center">
@@ -166,8 +170,10 @@ const PatientInfo = ({ patient }) => {
 					</div>
 
 					<button
-						onClick={() => {
+						onClick={async () => {
 							let ref = session.data.userId;
+							await router.push("/");
+							signOut();
 							deleteProfile(ref);
 						}}
 						type="button"

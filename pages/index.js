@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export default function Home() {
 	return (
@@ -11,9 +12,11 @@ export default function Home() {
 					is our first name and we live by that. Come join our family and
 					experience the best in the industry
 				</p>
-				<button className="w-48 h-16  text-xl bg-gray-800 font-semibold leading-tight text-white rounded-full">
-					Get Started
-				</button>
+				<Link href="/choice">
+					<button className="w-48 h-16  text-xl bg-gray-800 font-semibold leading-tight text-white rounded-full">
+						Get Started
+					</button>
+				</Link>
 			</div>
 		</div>
 	);

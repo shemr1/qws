@@ -11,6 +11,7 @@ const DocAppointments = ({ pending, approved }) => {
 	const router = useRouter();
 	const contentType = "application/json";
 	console.log(session);
+
 	const [body, setBody] = useState({
 		id: "",
 		doctorID: "",

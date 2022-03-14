@@ -5,6 +5,17 @@ import { useRouter } from "next/router";
 const Patients = ({ patients }) => {
 	const { data: status } = useSession();
 
+	function getAge(dateString) {
+		var today = new Date();
+		var birthDate = new Date(dateString);
+		var age = today.getFullYear() - birthDate.getFullYear();
+		var m = today.getMonth() - birthDate.getMonth();
+		if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+			age--;
+		}
+		return age;
+	}
+
 	console.log(patients);
 
 	if (status === "loading") {
@@ -14,7 +25,7 @@ const Patients = ({ patients }) => {
 	return (
 		<div className="container p-3">
 			{patients.map((patient) => (
-				<div className="col-md-3 animated fadeIn" key={patient._id}>
+				<div className="col-md-3 animated fadeIn p-3" key={patient._id}>
 					<a
 						href="#"
 						className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
@@ -25,7 +36,18 @@ const Patients = ({ patients }) => {
 						<p className="font-normal text-gray-700 dark:text-gray-400">
 							{patient.email}
 						</p>
-						<p>Age:</p>
+						<p className="font-normal text-gray-700 dark:text-gray-400 ">
+							Injuries
+						</p>
+						<p className="font-normal text-gray-700 dark:text-gray-400 p-2">
+							{patient.Injuries.toString()}
+						</p>
+						<p className="font-normal text-gray-700 dark:text-gray-400 ">
+							Allergies
+						</p>
+						<p className="font-normal text-gray-700 dark:text-gray-400 p-2">
+							{patient.allergies.toString()}
+						</p>
 					</a>
 				</div>
 			))}
