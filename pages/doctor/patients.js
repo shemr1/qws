@@ -4,8 +4,7 @@ import { useRouter } from "next/router";
 
 const Patients = ({ patients }) => {
 	const { data: status } = useSession();
-	const session = useSession();
-	const router = useRouter();
+
 	console.log(patients);
 
 	if (status === "loading") {
