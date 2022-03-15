@@ -47,7 +47,7 @@ export default function Login({ providers }) {
 			<div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
 				<div className="max-w-md w-full space-y-8">
 					<div>
-						<img className="mx-auto h-12 w-auto" src="/logo.png" alt="QMS" />
+						<img className="mx-auto h-60 w-auto" src="/logo.png" alt="QMS" />
 						<h2 className="mt-6 text-center text-3xl font-extrabold text-slate-500">
 							Sign in to your account
 						</h2>
@@ -102,9 +102,7 @@ export default function Login({ providers }) {
 								<a
 									href="#"
 									className="font-medium text-indigo-600 hover:text-indigo-500"
-								>
-									Forgot your password?
-								</a>
+								></a>
 							</div>
 						</div>
 
@@ -119,7 +117,7 @@ export default function Login({ providers }) {
 					</form>
 					<hr />
 					<div className="grid gap-4 grid-cols-3">
-						<button
+						{/* <button
 							onClick={() => signIn("google")}
 							className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
 						>
@@ -136,7 +134,7 @@ export default function Login({ providers }) {
 							className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
 						>
 							Twitter
-						</button>
+						</button> */}
 					</div>
 				</div>
 			</div>
