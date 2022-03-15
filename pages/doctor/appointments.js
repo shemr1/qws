@@ -120,8 +120,11 @@ const DocAppointments = ({ pending, approved }) => {
 													Requested date:{" "}
 													{new Date(app.date).toLocaleDateString()}
 												</h3>
-												<p className="font-normal text-gray-700 dark:text-gray-400">
+												<p className="font-normal text-gray-700 dark:text-gray-400"></p>
 													Requested time: {app.time}
+												</p>
+												<p className="font-normal text-gray-700 dark:text-gray-400">
+													Reason: {app.reason}
 												</p>
 												<p className="font-normal text-gray-700 dark:text-gray-400">
 													Status: {app.status}
