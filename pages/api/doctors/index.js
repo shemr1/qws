@@ -7,7 +7,7 @@ async function handler(req, res) {
 	//Only POST mothod is accepted
 	if (req.method === "POST") {
 		//Getting email and password from body
-		const { email, password, name, image, speciality } = req.body;
+		const { email, password, name, image, speciality, ip } = req.body;
 		//Validate
 		if (!email || !email.includes("@") || !password) {
 			res.status(422).json({ message: "Invalid Data" });

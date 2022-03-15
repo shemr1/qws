@@ -4,6 +4,8 @@ import Patient from "../../../models/patientModel";
 import { hash } from "bcryptjs";
 
 async function handler(req, res) {
+	const { method } = req;
+
 	switch (method) {
 		case "GET":
 			try {
@@ -53,6 +55,7 @@ async function handler(req, res) {
 				});
 
 				const status = await db.collection("users").insertOne(newUser);
+
 				console.log(status.insertedId);
 				let id = status.insertedId;
 
@@ -70,6 +73,7 @@ async function handler(req, res) {
 				//Close DB connection
 				client.close();
 			} catch (error) {
+				console.log(error.message);
 				res.status(400).json({ success: false, msg: error.message });
 			}
 			break;

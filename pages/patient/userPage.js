@@ -108,9 +108,9 @@ const PatientInfo = ({ patient }) => {
 				<h1 className="text-2xl">{current.name}</h1>
 				<p>email: {current.email}</p>
 				<div className="space-y-2">
-					<h2 className="font-semibold">Allergies</h2>
-					<p>{current.allergies.toString()}</p>
 					<h2 className="font-semibold">Previous critical injuries</h2>
+					<p>{current.allergies.toString()}</p>
+					<h2 className="font-semibold">AAlleries</h2>
 					<p>{current.Injuries.toString()}</p>
 				</div>
 				<div className="card">
